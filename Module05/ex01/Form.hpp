@@ -7,8 +7,7 @@
 
 class Bureaucrat;
 
-class Form
-{
+class Form {
 
 	private:
 		const std::string	name;
@@ -18,23 +17,25 @@ class Form
 
 	public:
 		Form(std::string const name, int const gradeToSign, int const gradeToExecute);
+		Form(const Form& toCopy);
 		~Form();
-		Form(Form& toCopy);
-		Form&               operator=(const Form &other);
+		Form&				operator=(const Form &other);
 		const std::string	getName(void) const;
+		void				setName(const std::string name);
 		bool				getSign(void) const;
+		void				setSign(const bool sign);
 		int					getGradeToSign(void) const;
+		void				setGradeToSign(const int grade);
 		int					getGradetoExecute(void) const;
+		void				setGradetoExecute(const int grade);
 		void				beSigned(Bureaucrat& bureaucrat);
 
-		class GradeTooHighException : public std::exception
-		{
+		class GradeTooHighException : public std::exception {
 			public:
 				virtual const char* what() const throw();
 		};
-        
-		class GradeTooLowException : public std::exception
-		{
+
+		class GradeTooLowException : public std::exception {
 			public:
 				virtual const char* what() const throw();
 		};
