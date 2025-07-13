@@ -6,9 +6,9 @@
 
 #include <string>
 #include <iostream>
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat {
 
@@ -26,7 +26,8 @@ class Bureaucrat {
 		const std::string	getName() const;
 		int					getGrade() const;
 		void				setGrade(const int grade);
-		void				signForm(Form &form);
+		void				signForm(AForm& form);
+		void				executeForm(const AForm& form);
 
 		class GradeTooLowException : public std::exception {
 			virtual const char	*what() const throw();
